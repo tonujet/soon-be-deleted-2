@@ -12,12 +12,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKERHUB_USERNAME}}/iit-lab6
+    - name: Build docker image
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKERHUB_USERNAME}}/iit-lab6-anton
     
-    - name: Docker hub authentication
+    - name: Auth to docker hub 
       run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
 
-    - name: Image to docker hub
-      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/iit-lab6
+    - name: Push image to docker hub
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/iit-lab6-anton
 
